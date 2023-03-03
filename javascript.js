@@ -12,7 +12,7 @@ function GetComputerChoice()
 }
 
 // Play Rock Paper Scissors and return a string that declares the winner
-function RockPaperScissors(PlayerSelection, ComputerSelection)
+function PlayRound(PlayerSelection, ComputerSelection)
 {
     // make user input case-insensitive
     let inputLowerCase = PlayerSelection.toLowerCase();
@@ -33,3 +33,4 @@ function RockPaperScissors(PlayerSelection, ComputerSelection)
     else
         return "It's a Tie, You and the computer both selected " + PlayerSelection;
 }
+
