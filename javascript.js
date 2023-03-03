@@ -44,11 +44,26 @@ function Game()
     
     for(let i = 0; i < 5; i++)
     {
-        let userInput = prompt("Please type either rock, paper, or scissors");
+        let userInput = "";
         let computerSelection = GetComputerChoice();
+
+        while(!UserInputValid(userInput))
+        {
+            userInput = prompt("Please type either rock, paper, or scissors");
+        }
 
         console.log(`Game ${i} You selected ${userInput} and the computer selected ${computerSelection}`);
 
         console.log(PlayRound(userInput, computerSelection));
     }
+}
+
+//Return whether a user input is valid or not
+function UserInputValid(UserInput)
+{
+    let inputLowerCase = UserInput.toLowerCase();
+    if(inputLowerCase === 'rock'|inputLowerCase === 'paper'|inputLowerCase === 'scissors')
+        return true;
+    else
+        return false;
 }
