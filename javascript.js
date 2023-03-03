@@ -10,3 +10,12 @@ function GetComputerChoice()
     else
         return 'scissors'
 }
+
+// Play Rock Paper Scissors and return a string that declares the winner
+function RockPaperScissors(PlayerSelection, ComputerSelection)
+{
+    // make user input case-insensitive
+    let inputLowerCase = PlayerSelection.toLowerCase();
+
+    // game logic
+}
