@@ -34,3 +34,21 @@ function PlayRound(PlayerSelection, ComputerSelection)
         return "It's a Tie, You and the computer both selected " + PlayerSelection;
 }
 
+// Play a 5 round game of Rock Paper Scissors that keeps score and reports a winner
+// or a loser at the end
+function Game()
+{
+    let wins, losses, ties = 0;
+    
+    console.log("Let's play a Best of 5 game of Rock Paper Scissors!");
+    
+    for(let i = 0; i < 5; i++)
+    {
+        let userInput = prompt("Please type either rock, paper, or scissors");
+        let computerSelection = GetComputerChoice();
+
+        console.log(`Game ${i} You selected ${userInput} and the computer selected ${computerSelection}`);
+
+        console.log(PlayRound(userInput, computerSelection));
+    }
+}
