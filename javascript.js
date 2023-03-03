@@ -42,7 +42,7 @@ function Game()
     
     console.log("Let's play a Best of 5 game of Rock Paper Scissors!");
     
-    for(let i = 0; i < 5; i++)
+    for(let i = 1; i <= 5; i++)
     {
         let userInput = "";
         let computerSelection = GetComputerChoice();
