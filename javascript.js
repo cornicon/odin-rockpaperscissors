@@ -38,7 +38,9 @@ function PlayRound(PlayerSelection, ComputerSelection)
 // or a loser at the end
 function Game()
 {
-    let wins, losses, ties = 0;
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
     
     console.log("Let's play a Best of 5 game of Rock Paper Scissors!");
     
@@ -54,8 +56,21 @@ function Game()
 
         console.log(`Game ${i} You selected ${userInput} and the computer selected ${computerSelection}`);
 
-        console.log(PlayRound(userInput, computerSelection));
+        let outcome = PlayRound(userInput, computerSelection);
+
+        // increment depending on outcome
+        if (outcome.charAt(4) === 'W')
+            wins++;
+        else if(outcome.charAt(4) === 'L')
+            losses++;
+        else
+            ties++;
+
+        console.log(outcome);
     }
+
+    console.log(`Wins: ${wins} Losses ${losses} Ties ${ties}`);
+
 }
 
 //Return whether a user input is valid or not
