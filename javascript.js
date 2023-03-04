@@ -70,7 +70,17 @@ function Game()
     }
 
     console.log(`Wins: ${wins} Losses ${losses} Ties ${ties}`);
+    console.log(WinLoseDraw(wins, losses));
+}
 
+function WinLoseDraw(Wins, Losses)
+{
+    if (Wins > Losses)
+        return "Congratulations! You Won the best of 5!";
+    else if(Losses > Wins)
+        return "Sorry, The Computer Won the best of 5. Better Luck Next Time";
+    else
+        return "It was a long har fought Tie Game in the best of 5";
 }
 
 //Return whether a user input is valid or not
