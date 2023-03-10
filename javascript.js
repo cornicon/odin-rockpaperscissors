@@ -41,11 +41,13 @@ function Game()
     let wins = 0;
     let losses = 0;
     let ties = 0;
+    let roundNumber = 0;
     
     console.log("Let's play a Best of 5 game of Rock Paper Scissors!");
     
-    for(let i = 1; i <= 5; i++)
+    while(wins < 5 && losses < 5)
     {
+        roundNumber++;
         let userInput = "";
         let computerSelection = GetComputerChoice();
 
@@ -54,7 +56,7 @@ function Game()
             userInput = prompt("Please type either rock, paper, or scissors");
         }
 
-        console.log(`Game ${i} You selected ${userInput} and the computer selected ${computerSelection}`);
+        console.log(`Game ${roundNumber} You selected ${userInput} and the computer selected ${computerSelection}`);
 
         let outcome = PlayRound(userInput, computerSelection);
 
@@ -80,7 +82,7 @@ function WinLoseDraw(Wins, Losses)
     else if(Losses > Wins)
         return "Sorry, The Computer Won the best of 5. Better Luck Next Time";
     else
-        return "It was a long har fought Tie Game in the best of 5";
+        return "It was a long hard fought Tie Game in the best of 5";
 }
 
 //Return whether a user input is valid or not
