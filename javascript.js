@@ -1,3 +1,14 @@
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+
+// forEach to iterate through each button
+// add a click listener for each one
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+    });
+});
+
 //randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
 function GetComputerChoice()
 {
