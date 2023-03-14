@@ -5,7 +5,12 @@ const buttons = document.querySelectorAll('button');
 // add a click listener for each one
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        console.log(button.id);
+        if(button.id === 'btnRock')
+            console.log(PlayRound('rock', GetComputerChoice()));
+        if(button.id === 'btnPaper')
+            console.log(PlayRound('paper', GetComputerChoice()));
+        if(button.id === 'btnScissors')
+            console.log(PlayRound('scissors', GetComputerChoice()));
     });
 });
 
@@ -47,7 +52,7 @@ function PlayRound(PlayerSelection, ComputerSelection)
 
 // Play a 5 round game of Rock Paper Scissors that keeps score and reports a winner
 // or a loser at the end
-function Game()
+function ConsoleGame()
 {
     let wins = 0;
     let losses = 0;
