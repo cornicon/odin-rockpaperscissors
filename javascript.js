@@ -1,19 +1,75 @@
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll('button');
+const result = document.getElementById('results');
+const seriesResult = document.getElementById('seriesResults');
+const winsLabel = document.getElementById('wins');
+const lossesLabel = document.getElementById('losses');
+const tiesLabel = document.getElementById('ties');
+
+let wins = 0;
+let losses = 0;
+let ties = 0;
+let roundNumber = 0;
+
+result.innerHTML = "Click any button to start a best of 5 game of Rock, Paper, Scissors!";
 
 // forEach to iterate through each button
 // add a click listener for each one
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if(button.id === 'btnRock')
-            console.log(PlayRound('rock', GetComputerChoice()));
+        {
+            let outcome = PlayRound('rock', GetComputerChoice());
+            ParseOutcome(outcome);
+        }  
         if(button.id === 'btnPaper')
-            console.log(PlayRound('paper', GetComputerChoice()));
+        {
+            let outcome = PlayRound('paper', GetComputerChoice());
+            ParseOutcome(outcome);
+        }
         if(button.id === 'btnScissors')
-            console.log(PlayRound('scissors', GetComputerChoice()));
+        {
+            let outcome = PlayRound('scissors', GetComputerChoice());
+            ParseOutcome(outcome);
+        }
     });
 });
 
+function ParseOutcome(Outcome)
+{
+        seriesResult.innerHTML = "";
+
+        // increment depending on outcome and update result, wins, losses, ties
+        if (Outcome.charAt(4) === 'W')
+        {
+            wins++;
+        }
+        else if(Outcome.charAt(4) === 'L')
+        {
+            losses++;
+        }
+        else
+        {
+            ties++;
+        }
+
+        winsLabel.innerHTML = `${wins} Wins`;
+        lossesLabel.innerHTML = `${losses} Losses`;
+        tiesLabel.innerHTML = `${ties} Ties`;
+
+        if(wins < 5 && losses < 5)
+        {
+            result.innerHTML = Outcome;
+        }
+        else
+        {
+            seriesResult.innerHTML = WinLoseDraw(wins, losses);
+            wins = 0;
+            losses = 0;
+            ties = 0;
+        }
+        
+}
 //randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
 function GetComputerChoice()
 {
